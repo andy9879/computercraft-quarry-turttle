@@ -1,0 +1,116 @@
+function go(blocks)
+    for i = 1, blocks do
+        turtle.forward()
+    end
+end
+
+function turnAround()
+    turtle.turnRight()
+    turtle.turnRight()
+end
+
+
+
+-- turtle.up()
+
+function setMarkers(size)
+
+    turtle.forward()
+
+    turtle.select(3)
+    turtle.placeDown()
+    turtle.select(2)
+    turtle.up()
+    -- turtle.placeDown()
+
+    go(size)
+
+    turtle.down()
+
+    turtle.select(3)
+    turtle.placeDown()
+    turtle.up()
+    turtle.select(2)
+    turtle.placeDown()
+
+    turnAround()
+
+    go(size)
+
+    turtle.turnRight()
+
+    go(size)
+
+    turtle.down()
+
+    turtle.select(3)
+    turtle.placeDown()
+    turtle.up()
+    turtle.select(2)
+    turtle.placeDown()
+
+    turtle.turnRight()
+    turtle.turnRight()
+
+    go(size)
+
+    turtle.turnRight()
+    turtle.forward()
+    turnAround()
+
+    turtle.down()
+
+    turtle.forward()
+    turnAround()
+    turtle.select(5)
+    turtle.place()
+    turtle.up()
+    turtle.select(2)
+    turtle.placeDown()
+    turtle.forward()
+    turtle.digDown()
+    turtle.down()
+    turnAround()
+
+end
+
+print("Place 1 Coal")
+print("Place 2 Marker")
+print("Place 3 Cobblestone")
+print("Place 4 Quarry")
+print("Place 5 Autonomous Activator")
+print("Place 6 Tessaract")
+
+print("Press any key to continue")
+os.pullEvent("key")
+
+
+turtle.select(1)
+turtle.refuel(48)
+
+--place tessaract
+
+turtle.up()
+turtle.select(6)
+turtle.placeDown()
+
+
+for i = 1, 4 do
+    turtle.forward()
+    turtle.down()
+
+    setMarkers(63)
+
+    --place quarry
+
+    turtle.select(4)
+    turtle.up()
+    turtle.placeDown()
+
+    --return home
+    turtle.back()
+
+    turtle.turnRight()
+end
+
+print(turtle.getFuelLevel())
